@@ -1,0 +1,625 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Multi-themed design system with character-specific aesthetics */
+
+@layer base {
+  :root {
+    /* Barbie Pink Palette */
+    --background: 340 100% 97%;
+    --foreground: 340 100% 15%;
+
+    --card: 340 100% 98%;
+    --card-foreground: 340 80% 20%;
+
+    --popover: 340 100% 98%;
+    --popover-foreground: 340 80% 20%;
+
+    --primary: 340 100% 60%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 340 100% 75%;
+
+    --secondary: 340 50% 90%;
+    --secondary-foreground: 340 100% 40%;
+
+    --muted: 340 30% 92%;
+    --muted-foreground: 340 40% 50%;
+
+    --accent: 320 100% 70%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 340 30% 85%;
+    --input: 340 30% 90%;
+    --ring: 340 100% 60%;
+
+    --radius: 1rem;
+
+    /* Barbie Gradients */
+    --gradient-barbie: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
+    --gradient-sparkle: linear-gradient(45deg, hsl(var(--primary-glow)), hsl(var(--accent)));
+    --gradient-glass: linear-gradient(180deg, transparent, hsl(var(--primary) / 0.1));
+
+    /* Magical Effects */
+    --shadow-barbie: 0 10px 30px -10px hsl(var(--primary) / 0.3);
+    --shadow-sparkle: 0 0 40px hsl(var(--primary-glow) / 0.4);
+    --glow-barbie: 0 0 20px hsl(var(--primary) / 0.5);
+
+    /* Animations */
+    --transition-magical: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --sidebar-background: 340 50% 95%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  /* Mickey Mouse Theme */
+  [data-theme="mickey"] {
+    --background: 48 100% 97%;
+    --foreground: 220 15% 25%;
+
+    --card: 48 100% 98%;
+    --card-foreground: 220 15% 25%;
+
+    --popover: 48 100% 98%;
+    --popover-foreground: 220 15% 25%;
+
+    --primary: 0 100% 50%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 48 100% 60%;
+
+    --secondary: 48 50% 90%;
+    --secondary-foreground: 220 15% 25%;
+
+    --muted: 48 30% 92%;
+    --muted-foreground: 220 15% 40%;
+
+    --accent: 48 100% 50%;
+    --accent-foreground: 220 15% 25%;
+
+    --gradient-barbie: linear-gradient(135deg, #ff0000, #000000, #ffff00);
+    --gradient-sparkle: linear-gradient(45deg, #ffff00, #ff0000);
+  }
+
+  /* Spider-Man Theme */
+  [data-theme="spiderman"] {
+    --background: 220 100% 97%;
+    --foreground: 0 100% 15%;
+
+    --card: 220 100% 98%;
+    --card-foreground: 0 80% 20%;
+
+    --popover: 220 100% 98%;
+    --popover-foreground: 0 80% 20%;
+
+    --primary: 0 100% 60%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 220 100% 70%;
+
+    --secondary: 220 50% 90%;
+    --secondary-foreground: 0 100% 40%;
+
+    --muted: 220 30% 92%;
+    --muted-foreground: 220 40% 50%;
+
+    --accent: 220 100% 60%;
+    --accent-foreground: 0 0% 100%;
+
+    --gradient-barbie: linear-gradient(135deg, #ff0000, #0000ff, #ffffff);
+    --gradient-sparkle: linear-gradient(45deg, #0000ff, #ff0000);
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  /* Dark theme overrides for Barbie - IMPROVED VISIBILITY */
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 0 0% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 340 100% 60%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 0 0% 85%;
+    --accent: 320 100% 70%;
+    --accent-foreground: 0 0% 100%;
+    --border: 217.2 32.6% 25%;
+    --input: 217.2 32.6% 20%;
+    
+    /* Override gradients for better dark mode visibility */
+    --gradient-barbie: linear-gradient(135deg, #ec4899, #f97316);
+    --gradient-sparkle: linear-gradient(45deg, #f97316, #ec4899);
+  }
+
+  /* Dark theme overrides for Mickey - IMPROVED VISIBILITY */
+  .dark[data-theme="mickey"] {
+    --background: 222.2 84% 4.9%;
+    --foreground: 0 0% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 48 100% 60%;
+    --primary-foreground: 0 0% 0%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 0 0% 85%;
+    --accent: 0 100% 50%;
+    --accent-foreground: 0 0% 100%;
+    --border: 217.2 32.6% 25%;
+    --input: 217.2 32.6% 20%;
+    
+    /* Override gradients for better dark mode visibility */
+    --gradient-barbie: linear-gradient(135deg, #ff6b6b, #ffd93d, #ff6b6b);
+    --gradient-sparkle: linear-gradient(45deg, #ffd93d, #ff6b6b);
+  }
+
+  /* Dark theme overrides for Spider-Man - IMPROVED VISIBILITY */
+  .dark[data-theme="spiderman"] {
+    --background: 222.2 84% 4.9%;
+    --foreground: 0 0% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 100% 60%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 0 0% 85%;
+    --accent: 220 100% 60%;
+    --accent-foreground: 0 0% 100%;
+    --border: 217.2 32.6% 25%;
+    --input: 217.2 32.6% 20%;
+    
+    /* Override gradients for better dark mode visibility */
+    --gradient-barbie: linear-gradient(135deg, #dc2626, #2563eb);
+    --gradient-sparkle: linear-gradient(45deg, #2563eb, #dc2626);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground overflow-x-hidden;
+  }
+}
+
+@layer utilities {
+  /* Theme animations and effects */
+  .sparkle-fall {
+    animation: sparkle-fall 3s linear infinite;
+  }
+  
+  .slipper-fall {
+    animation: slipper-fall 4s linear infinite;
+  }
+
+  .castle-fall {
+    animation: castle-fall 4s linear infinite;
+  }
+
+  .spider-fall {
+    animation: spider-fall 3.5s linear infinite;
+  }
+
+  .mickey-fall {
+    animation: mickey-fall 4s linear infinite;
+  }
+
+  .spider-web-fall {
+    animation: spider-web-fall 3.5s linear infinite;
+  }
+  
+  .barbie-glow {
+    box-shadow: var(--glow-barbie);
+  }
+  
+  .gradient-barbie {
+    background: var(--gradient-barbie);
+  }
+  
+  .gradient-sparkle {
+    background: var(--gradient-sparkle);
+  }
+
+  .animate-shimmer {
+    animation: shimmer 2s infinite;
+  }
+
+  .animate-sparkle-text {
+    animation: sparkle-text 1.5s infinite alternate;
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  /* COMPREHENSIVE dark mode text visibility fixes for ALL themes */
+  .dark .text-black,
+  .dark [class*="text-black"] {
+    color: white !important;
+  }
+  
+  .dark .text-gray-900,
+  .dark [class*="text-gray-900"] {
+    color: white !important;
+  }
+  
+  .dark .text-gray-800,
+  .dark [class*="text-gray-800"] {
+    color: rgb(229 231 235) !important;
+  }
+
+  .dark .text-gray-700,
+  .dark [class*="text-gray-700"] {
+    color: rgb(209 213 219) !important;
+  }
+
+  .dark .text-muted-foreground {
+    color: rgb(209 213 219) !important;
+  }
+
+  .dark .text-primary {
+    color: hsl(var(--primary)) !important;
+  }
+
+  /* Force all card text to be visible in dark mode for ALL themes */
+  .dark .card .text-foreground,
+  .dark .card [class*="text-foreground"] {
+    color: white !important;
+  }
+
+  /* Ensure gradient texts are visible in dark mode for ALL themes */
+  .dark .bg-gradient-barbie {
+    color: white !important;
+  }
+
+  .dark .bg-gradient-sparkle {
+    color: white !important;
+  }
+
+  /* Fix button text in dark mode for ALL themes */
+  .dark .bg-white {
+    color: black !important;
+  }
+
+  /* Ensure all text in modal/dialog content is visible */
+  .dark [role="dialog"] .text-black,
+  .dark [role="dialog"] [class*="text-black"] {
+    color: white !important;
+  }
+
+  /* Fix specific text visibility issues in dark mode */
+  .dark .text-foreground\/70,
+  .dark .text-foreground\/80 {
+    color: rgba(255, 255, 255, 0.8) !important;
+  }
+
+  /* Ensure all paragraph and span text is visible */
+  .dark p,
+  .dark span,
+  .dark div {
+    color: inherit;
+  }
+
+  /* Fix any remaining invisible text issues */
+  .dark .invisible-text-fix,
+  .dark [class*="text-"] {
+    color: rgb(229 231 235) !important;
+  }
+
+  /* SPECIFIC FIXES FOR HIGHLIGHTED ITEMS IN DARK MODE */
+  /* Fix yellow highlight text visibility in Mickey Mouse dark theme */
+  .dark[data-theme="mickey"] .bg-yellow-100,
+  .dark[data-theme="mickey"] .bg-yellow-200 {
+    background-color: rgba(251, 191, 36, 0.2) !important;
+    color: white !important;
+  }
+
+  .dark[data-theme="mickey"] .bg-yellow-100 *,
+  .dark[data-theme="mickey"] .bg-yellow-200 * {
+    color: white !important;
+  }
+
+  /* Fix hover text visibility in dark mode */
+  .dark .hover\:text-gray-900:hover,
+  .dark .hover\:text-black:hover {
+    color: white !important;
+  }
+
+  /* Fix Google Colab and Kaggle button text visibility on hover */
+  .dark .bg-blue-600:hover,
+  .dark .bg-blue-500:hover,
+  .dark .bg-green-600:hover,
+  .dark .bg-orange-500:hover {
+    color: white !important;
+  }
+
+  /* Ensure all button text is visible on hover in dark mode */
+  .dark button:hover,
+  .dark .hover\:bg-primary:hover,
+  .dark .hover\:bg-secondary:hover {
+    color: white !important;
+  }
+
+  .dark button:hover *,
+  .dark .hover\:bg-primary:hover *,
+  .dark .hover\:bg-secondary:hover * {
+    color: white !important;
+  }
+
+  /* Fix highlighted roadmap items text visibility */
+  .dark .bg-yellow-50,
+  .dark .bg-yellow-100,
+  .dark .bg-yellow-200,
+  .dark .bg-blue-50,
+  .dark .bg-blue-100,
+  .dark .bg-green-50,
+  .dark .bg-green-100 {
+    background-color: rgba(75, 85, 99, 0.3) !important;
+    color: white !important;
+  }
+
+  .dark .bg-yellow-50 *,
+  .dark .bg-yellow-100 *,
+  .dark .bg-yellow-200 *,
+  .dark .bg-blue-50 *,
+  .dark .bg-blue-100 *,
+  .dark .bg-green-50 *,
+  .dark .bg-green-100 * {
+    color: white !important;
+  }
+
+  /* Remove highlight backgrounds and use subtle indicators */
+  .starred-item {
+    @apply relative;
+  }
+
+  .starred-item::before {
+    content: '👑';
+    @apply absolute -top-1 -right-1 text-xs;
+  }
+
+  .pixie-recommended::after {
+    content: '✨ Pixie Recommended';
+    @apply ml-2 text-xs text-pink-500 font-medium;
+  }
+
+  /* Keyframes and animations */
+  @keyframes sparkle-fall {
+    0% {
+      transform: translateY(-100vh) rotate(0deg);
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(100vh) rotate(360deg);
+      opacity: 0;
+    }
+  }
+
+  @keyframes slipper-fall {
+    0% {
+      transform: translateY(-100vh) rotate(0deg);
+      opacity: 0;
+    }
+    10% {
+      opacity: 0.8;
+    }
+    90% {
+      opacity: 0.8;
+    }
+    100% {
+      transform: translateY(100vh) rotate(180deg);
+      opacity: 0;
+    }
+  }
+
+  @keyframes castle-fall {
+    0% {
+      transform: translateY(-100vh) rotate(0deg);
+      opacity: 0;
+    }
+    10% {
+      opacity: 0.9;
+    }
+    90% {
+      opacity: 0.9;
+    }
+    100% {
+      transform: translateY(100vh) rotate(180deg);
+      opacity: 0;
+    }
+  }
+
+  @keyframes spider-fall {
+    0% {
+      transform: translateY(-100vh) rotate(0deg);
+      opacity: 0;
+    }
+    10% {
+      opacity: 0.8;
+    }
+    90% {
+      opacity: 0.8;
+    }
+    100% {
+      transform: translateY(100vh) rotate(360deg);
+      opacity: 0;
+    }
+  }
+
+  @keyframes mickey-fall {
+    0% {
+      transform: translateY(-100vh) rotate(0deg);
+      opacity: 0;
+    }
+    10% {
+      opacity: 0.8;
+    }
+    90% {
+      opacity: 0.8;
+    }
+    100% {
+      transform: translateY(100vh) rotate(180deg);
+      opacity: 0;
+    }
+  }
+
+  @keyframes spider-web-fall {
+    0% {
+      transform: translateY(-100vh) rotate(0deg);
+      opacity: 0;
+    }
+    10% {
+      opacity: 0.7;
+    }
+    90% {
+      opacity: 0.7;
+    }
+    100% {
+      transform: translateY(100vh) rotate(270deg);
+      opacity: 0;
+    }
+  }
+
+  @keyframes barbie-pulse {
+    0%, 100% {
+      transform: scale(1);
+      box-shadow: var(--shadow-barbie);
+    }
+    50% {
+      transform: scale(1.05);
+      box-shadow: var(--shadow-sparkle);
+    }
+  }
+
+  @keyframes magical-shimmer {
+    0% {
+      background-position: -200% center;
+    }
+    100% {
+      background-position: 200% center;
+    }
+  }
+
+  @keyframes shimmer {
+    0%, 100% {
+      transform: scale(1);
+      filter: drop-shadow(0 0 10px hotpink);
+    }
+    50% {
+      transform: scale(1.05);
+      filter: drop-shadow(0 0 20px deeppink);
+    }
+  }
+
+  @keyframes sparkle-text {
+    0% {
+      text-shadow: 0 0 10px hsl(var(--primary-glow));
+    }
+    100% {
+      text-shadow: 0 0 20px hsl(var(--primary)), 0 0 10px hsl(var(--primary-glow));
+    }
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+  
+  .barbie-pulse {
+    animation: barbie-pulse 2s ease-in-out infinite;
+  }
+  
+  .magical-shimmer {
+    background: linear-gradient(90deg, transparent, hsl(var(--primary-glow) / 0.3), transparent);
+    background-size: 200% 100%;
+    animation: magical-shimmer 2s linear infinite;
+  }
+
+  /* Mobile responsiveness utilities */
+  @media (max-width: 640px) {
+    .text-responsive {
+      font-size: 0.875rem;
+    }
+    
+    .p-responsive {
+      padding: 1rem;
+    }
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--primary));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary-glow));
+}
